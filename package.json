@@ -1,0 +1,19 @@
+{
+  "name": "typique-demos",
+  "version": "0.0.0",
+  "description": "Typique demo projects deployments",
+  "main": "nextjs-search/index.html",
+  "scripts": {
+    "link": "mkdir -p pagesRoot && ln -Fs ../docs pagesRoot/typique-demos",
+    "serve": "npm run link && serve pagesRoot"
+  },
+  "keywords": [
+    "Typique",
+    "demos"
+  ],
+  "author": "Aleksei Berezkin",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.5"
+  }
+}

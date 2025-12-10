@@ -1,0 +1,132 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+body {
+  align-items: center;
+  background: linear-gradient(140deg, var(--theme-bg-color0), var(--theme-bg-color1));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  padding: 1em;
+  --theme-bg-color0: #F1F5F9;
+  --theme-bg-color1: #9CB8D3;
+  --theme-bt-bg-color: #516D4A;
+  --theme-fg-color: #040910;
+  --theme-bt-shadow-color: rgb(60 64 67 / 40%);
+  --theme-tx: 200ms;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    --theme-bg-color0: #294A66;
+    --theme-bg-color1: #060A0E;
+    --theme-bt-bg-color: #ADC8EB;
+    --theme-bt-bg-hover-color: #7CA7DF;
+    --theme-bt-bg-active-color: #2C67B5;
+    --theme-fg-color: #142F52;
+    --theme-bt-shadow-color: rgb(60 64 67 / 80%);
+    --theme-sec-bg-color: #AEC6A9;
+    --theme-sec-bg-hover-color: #7FA578;
+    --theme-sec-bg-active-color: #466241;
+    --theme-sec-fg-color: #233043;
+  }
+}
+.button {
+  border-radius: .25em;
+  cursor: pointer;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 18px;
+  letter-spacing: .05em;
+  padding: .5em;
+  text-transform: uppercase;
+  transition: --c0 var(--theme-tx),
+    --c1 var(--theme-tx);
+}
+.button {
+}
+@property --c0 {
+  syntax: "<color>";
+  initial-value: #888;
+  inherits: false;
+}
+@property --c1 {
+  syntax: "<color>";
+  initial-value: #888;
+  inherits: false;
+}
+.primary {
+}
+.primary {
+  --hover-x: 50%;
+  --hover-y: 50%;
+  background: radial-gradient(
+    circle at var(--hover-x) var(--hover-y),
+    var(--c0) 0%,
+    var(--c1) 100%
+  );
+  border: none;
+  box-shadow: 3px 0 6px 0px var(--theme-bt-shadow-color), -1px 4px 8px 1px var(--theme-bt-shadow-color);
+  color: var(--theme-fg-color);
+  --c0: var(--theme-bt-bg-color);
+  --c1: var(--c0);
+}
+.primary:hover, .primary:active {
+  --c0: var(--theme-bt-bg-hover-color);
+}
+.primary:active {
+  --c1: var(--theme-bt-bg-active-color);
+}
+.secondary {
+}
+.secondary {
+  --hover-x: 50%;
+  --hover-y: 50%;
+  background: radial-gradient(
+    circle at var(--hover-x) var(--hover-y),
+    var(--c0) 0%,
+    var(--c1) 100%
+  );
+  border: none;
+  box-shadow: 3px 0 6px 0px var(--theme-bt-shadow-color), -1px 4px 8px 1px var(--theme-bt-shadow-color);
+  color: var(--theme-sec-fg-color);
+  --c0: var(--theme-sec-bg-color);
+  --c1: var(--c0);
+}
+.secondary:hover, .secondary:active {
+  --c0: var(--theme-sec-bg-hover-color);
+}
+.secondary:active {
+  --c1: var(--theme-sec-bg-active-color);
+}
+.primary-outlined {
+}
+.primary-outlined {
+  background: transparent;
+  border: 2px solid var(--c0);
+  color: var(--c0);
+  --c0: var(--theme-bt-bg-color);
+}
+.primary-outlined:hover, .primary-outlined:active {
+  --c0: var(--theme-bt-bg-hover-color);
+}
+.primary-outlined:active {
+  --c0: var(--theme-bt-bg-active-color);
+}
+.secondary-outlined {
+}
+.secondary-outlined {
+  background: transparent;
+  border: 2px solid var(--c0);
+  color: var(--c0);
+  --c0: var(--theme-sec-bg-color);
+}
+.secondary-outlined:hover, .secondary-outlined:active {
+  --c0: var(--theme-sec-bg-hover-color);
+}
+.secondary-outlined:active {
+  --c0: var(--theme-sec-bg-active-color);
+}
