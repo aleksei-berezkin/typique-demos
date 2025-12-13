@@ -5,34 +5,34 @@ html, body {
   width: 100%;
 }
 body {
+  --grad-angle: -40deg;
   align-items: center;
-  background: linear-gradient(140deg, var(--theme-bg-color0), var(--theme-bg-color1));
+  background: linear-gradient(var(--grad-angle), var(--theme-bg-color-less-contrast), var(--theme-bg-color));
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 1em;
   justify-content: center;
   padding: 1em;
-  --theme-bg-color0: #F1F5F9;
-  --theme-bg-color1: #9CB8D3;
-  --theme-bt-bg-color: #516D4A;
-  --theme-fg-color: #040910;
-  --theme-bt-shadow-color: rgb(60 64 67 / 40%);
+  --theme-bg-color: #fff;
+  --theme-bg-color-less-contrast: #9BB8D4;
+  --theme-prim-color: #516D4A;
+  --theme-prim-hover-color: #63865B;
+  --theme-sec-color: #2C67B5;
+  --theme-sec-hover-color: #3A7BCF;
+  --theme-bt-shadow-color: #3334;
   --theme-tx: 200ms;
 }
 @media (prefers-color-scheme: dark) {
   body {
-    --theme-bg-color0: #294A66;
-    --theme-bg-color1: #060A0E;
-    --theme-bt-bg-color: #ADC8EB;
-    --theme-bt-bg-hover-color: #7CA7DF;
-    --theme-bt-bg-active-color: #2C67B5;
-    --theme-fg-color: #142F52;
-    --theme-bt-shadow-color: rgb(60 64 67 / 80%);
-    --theme-sec-bg-color: #AEC6A9;
-    --theme-sec-bg-hover-color: #7FA578;
-    --theme-sec-bg-active-color: #466241;
-    --theme-sec-fg-color: #233043;
+    --grad-angle: 140deg;
+    --theme-bg-color: #060A0E;
+    --theme-bg-color-less-contrast: #294A66;
+    --theme-prim-color: #ADC8EB;
+    --theme-prim-hover-color: #7CA7DF;
+    --theme-sec-color: #AEC6A9;
+    --theme-sec-hover-color: #7FA578;
+    --theme-bt-shadow-color: #3336;
   }
 }
 .button {
@@ -44,7 +44,8 @@ body {
   padding: .5em;
   text-transform: uppercase;
   transition: --c0 var(--theme-tx),
-    --c1 var(--theme-tx);
+    --c1 var(--theme-tx),
+    translate 100ms linear;
 }
 .button {
 }
@@ -58,49 +59,76 @@ body {
   initial-value: #888;
   inherits: false;
 }
+.button:active {
+  translate: 1px 1px;
+}
 .primary {
 }
 .primary {
   --hover-x: 50%;
   --hover-y: 50%;
+  --grad1-col: 0%;
+  --grad2-col: 0%;
   background: radial-gradient(
     circle at var(--hover-x) var(--hover-y),
-    var(--c0) 0%,
-    var(--c1) 100%
+    var(--c1) var(--grad1-col),
+    var(--c0) var(--grad2-col)
   );
   border: none;
   box-shadow: 3px 0 6px 0px var(--theme-bt-shadow-color), -1px 4px 8px 1px var(--theme-bt-shadow-color);
-  color: var(--theme-fg-color);
-  --c0: var(--theme-bt-bg-color);
+  color: var(--theme-bg-color);
+  transition: --grad1-col 100ms ease-out, --grad2-col 100ms ease-out;
+  --c0: var(--theme-prim-color);
   --c1: var(--c0);
 }
 .primary:hover, .primary:active {
-  --c0: var(--theme-bt-bg-hover-color);
+  --c0: var(--theme-prim-hover-color);
 }
 .primary:active {
-  --c1: var(--theme-bt-bg-active-color);
+  --c1: color-mix(in srgb, var(--theme-prim-hover-color) 78%, var(--theme-bg-color));
+  --grad1-col: 100%;
+  --grad2-col: 200%;
+  transition-duration: 800ms;
 }
 .secondary {
 }
 .secondary {
   --hover-x: 50%;
   --hover-y: 50%;
+  --grad1-col: 0%;
+  --grad2-col: 0%;
   background: radial-gradient(
     circle at var(--hover-x) var(--hover-y),
-    var(--c0) 0%,
-    var(--c1) 100%
+    var(--c1) var(--grad1-col),
+    var(--c0) var(--grad2-col)
   );
   border: none;
   box-shadow: 3px 0 6px 0px var(--theme-bt-shadow-color), -1px 4px 8px 1px var(--theme-bt-shadow-color);
-  color: var(--theme-sec-fg-color);
-  --c0: var(--theme-sec-bg-color);
+  color: var(--theme-bg-color);
+  transition: --grad1-col 100ms ease-out, --grad2-col 100ms ease-out;
+  --c0: var(--theme-sec-color);
   --c1: var(--c0);
 }
 .secondary:hover, .secondary:active {
-  --c0: var(--theme-sec-bg-hover-color);
+  --c0: var(--theme-sec-hover-color);
 }
 .secondary:active {
-  --c1: var(--theme-sec-bg-active-color);
+  --c1: color-mix(in srgb, var(--theme-sec-hover-color) 78%, var(--theme-bg-color));
+  --grad1-col: 100%;
+  --grad2-col: 200%;
+  transition-duration: 800ms;
+}
+body {
+}
+@property --grad1-col {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+@property --grad2-col {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
 }
 .primary-outlined {
 }
@@ -108,13 +136,13 @@ body {
   background: transparent;
   border: 2px solid var(--c0);
   color: var(--c0);
-  --c0: var(--theme-bt-bg-color);
+  --c0: var(--theme-prim-color);
 }
 .primary-outlined:hover, .primary-outlined:active {
-  --c0: var(--theme-bt-bg-hover-color);
+  --c0: var(--theme-prim-hover-color);
 }
 .primary-outlined:active {
-  --c0: var(--theme-bt-bg-active-color);
+  --c0: color-mix(in srgb, var(--theme-prim-hover-color) 78%, var(--theme-bg-color));
 }
 .secondary-outlined {
 }
@@ -122,11 +150,11 @@ body {
   background: transparent;
   border: 2px solid var(--c0);
   color: var(--c0);
-  --c0: var(--theme-sec-bg-color);
+  --c0: var(--theme-sec-color);
 }
 .secondary-outlined:hover, .secondary-outlined:active {
-  --c0: var(--theme-sec-bg-hover-color);
+  --c0: var(--theme-sec-hover-color);
 }
 .secondary-outlined:active {
-  --c0: var(--theme-sec-bg-active-color);
+  --c0: color-mix(in srgb, var(--theme-sec-hover-color) 78%, var(--theme-bg-color));
 }

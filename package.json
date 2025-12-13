@@ -4,8 +4,10 @@
   "description": "Typique demo projects deployments",
   "main": "nextjs-search/index.html",
   "scripts": {
+    "dev": "npm start",
+    "start": "npm run link && npm run serve",
     "link": "mkdir -p pagesRoot && ln -Fs ../docs pagesRoot/typique-demos",
-    "serve": "npm run link && serve pagesRoot"
+    "serve": "serve pagesRoot"
   },
   "keywords": [
     "Typique",
