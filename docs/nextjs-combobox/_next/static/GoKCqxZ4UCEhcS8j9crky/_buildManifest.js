@@ -3,7 +3,7 @@ self.__BUILD_MANIFEST = {
     "afterFiles": [],
     "beforeFiles": [
       {
-        "source": "/typique-demos/nextjs-search/_next/:path+",
+        "source": "/typique-demos/nextjs-combobox/_next/:path+",
         "destination": "/_next/:path+"
       }
     ],
