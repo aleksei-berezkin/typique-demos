@@ -35,6 +35,16 @@ body {
     --theme-bt-shadow-color: #3336;
   }
 }
+@property --c0 {
+  syntax: "<color>";
+  initial-value: #888;
+  inherits: false;
+}
+@property --c1 {
+  syntax: "<color>";
+  initial-value: #888;
+  inherits: false;
+}
 .button {
   border-radius: .25em;
   cursor: pointer;
@@ -47,22 +57,8 @@ body {
     --c1 var(--theme-tx),
     translate 100ms linear;
 }
-.button {
-}
-@property --c0 {
-  syntax: "<color>";
-  initial-value: #888;
-  inherits: false;
-}
-@property --c1 {
-  syntax: "<color>";
-  initial-value: #888;
-  inherits: false;
-}
 .button:active {
   translate: 1px 1px;
-}
-.primary {
 }
 .primary {
   --hover-x: 50%;
@@ -91,8 +87,6 @@ body {
   transition-duration: 800ms;
 }
 .secondary {
-}
-.secondary {
   --hover-x: 50%;
   --hover-y: 50%;
   --grad1-col: 0%;
@@ -118,8 +112,6 @@ body {
   --grad2-col: 200%;
   transition-duration: 800ms;
 }
-body {
-}
 @property --grad1-col {
   syntax: "<percentage>";
   initial-value: 0%;
@@ -129,8 +121,6 @@ body {
   syntax: "<percentage>";
   initial-value: 0%;
   inherits: false;
-}
-.primary-outlined {
 }
 .primary-outlined {
   background: transparent;
@@ -143,8 +133,6 @@ body {
 }
 .primary-outlined:active {
   --c0: color-mix(in srgb, var(--theme-prim-hover-color) 78%, var(--theme-bg-color));
-}
-.secondary-outlined {
 }
 .secondary-outlined {
   background: transparent;
