@@ -1,6 +1,4 @@
 "use strict";
-// TODO when first line is export const aClass = '', should insert `import` before this line
-// TODO In general should not insert import on the same line
 var themeVars = {
     bgColor: '--theme-bg-color',
     bgColorLessContrast: '--theme-bg-color-less-contrast',

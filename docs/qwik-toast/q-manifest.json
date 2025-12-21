@@ -1,6 +1,6 @@
 {
 	"version": "1",
-	"manifestHash": "uj96ps",
+	"manifestHash": "a4kxfk",
 	"options": {
 		"target": "client",
 		"buildMode": "production",
@@ -515,8 +515,8 @@
 			"canonicalFilename": "index.tsx_routes_component_xmKQ8DPFnp4",
 			"origin": "routes/index.tsx",
 			"loc": [
-				1915,
-				5413
+				1732,
+				5230
 			]
 		},
 		"s_UiugBH1iPB0": {
@@ -623,8 +623,8 @@
 			"parent": "s_xmKQ8DPFnp4",
 			"origin": "routes/index.tsx",
 			"loc": [
-				2932,
-				3074
+				2749,
+				2891
 			]
 		},
 		"s_GOQv4rYhlHQ": {
@@ -637,8 +637,8 @@
 			"parent": "s_xmKQ8DPFnp4",
 			"origin": "routes/index.tsx",
 			"loc": [
-				2635,
-				2905
+				2452,
+				2722
 			]
 		},
 		"s_Ngeg0hnAkp8": {
